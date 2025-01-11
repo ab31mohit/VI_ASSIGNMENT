@@ -1,7 +1,6 @@
 # VECROS_INTERN_ASSIGNMENT
 Robotics Intern Assignment solution for Problem statements 1 & 2.
 
-
 ## Pre-requisites for PS-2
 - Ubuntu-22.04 LTS Desktop
 - ArduPilot-SITL
@@ -35,14 +34,14 @@ cd ~/ardupilot/ArduCopter
 sim_vehicle.py -v ArduCopter
 ```
 ***NOTE:***
-- In case you fine errors like `sim_vehicle.py : command not found`, then run this command :
+- In case you get errors like `sim_vehicle.py : command not found`, then run this command :
 ```
 echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest:$HOME/.local/bin" >> ~/.bashrc
 ```
 
 - Allowing multiple UDP out ports for SITL:    
 
-    - By default the Copter-4.5 build out only 1 udp port for conneciton.
+    - By default the Copter-4.5 build out at only 1 udp port for connection.
     
     - You can check this by running this command:    
         ```
@@ -85,12 +84,39 @@ git clone https://github.com/ab31mohit/VECROS_INTERN_ASSIGNMENT.git
 ```
 sim_vehicle.py -v ArduCopter --console --map
 ```
-Wait until the log data on MAVProxy console shows `EKF is using GPS` or soemthing similar.    
+Wait until the log data on MAVProxy console shows `EKF is using GPS` or something similar.    
 
-Btw you can change the default SITL map location to anything you want to (make sure that location has enough open space). Follow this line for more info - [change default sitl location](https://ardupilot.org/dev/docs/using-sitl-for-ardupilot-testing.html#setting-vehicle-start-location:~:text=Setting%20vehicle%20start,locations.txt%0Afile).
+Btw you can change the default SITL map location to anything you want to (make sure that location has enough open space). Follow this link for more info - [change default sitl location](https://ardupilot.org/dev/docs/using-sitl-for-ardupilot-testing.html#setting-vehicle-start-location:~:text=Setting%20vehicle%20start,locations.txt%0Afile).
 
 - Now run the script to upload First mission (of 15 waypoints) to drone in another terminal:
 ```
 cd ~/VECROS_INTERN_ASSIGNMENT/drone_missions/
-python3 mission1.py
+python3 mission.py
 ```
+<!-- Here's an output video for the same 
+
+https://github.com/user-attachments/assets/f49a3bff-82f9-4360-bfd9-46cf4d9b1002 -->
+
+
+## Running PS-1 solution
+
+- Directory structure of *grid_path_planning*
+```
+grid_path_planning/
+│
+├──── path_planning.cpp   # actual algorithm that solves for shortest path while minimizing cost
+│  
+├──── output.txt   # data of n X n X n points grid with each row defining the point and a weight(or cost)
+│
+├──── points.txt  # set of start and end points separated by an empty row
+|
+├──── paths.txt  # solution showing total cost, order in which paths should be traversed and path
+|
+```
+
+- Go to the path of `path_planning.cpp` file. Compile & run it
+```
+cd ~/VECROS_INTERN_ASSIGNMENT/grid_path_planning
+g++ path_planning.cpp -o path_planning && ./path_planning && rm path_planning
+```
+(Make sure you have already created three texts files named `output.txt`, `paths.txt`, `points.txt`)
