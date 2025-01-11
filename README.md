@@ -1,7 +1,7 @@
-# VECROS_INTERN_ASSIGNMENT
-Robotics Intern Assignment solution for Problem statements 1 & 2.
+# VI_ASSIGNMENT
+Solutions for VI Assignment for PS1 & PS2.
 
-## Pre-requisites for PS-2
+## Pre-requisites
 - Ubuntu-22.04 LTS Desktop
 - ArduPilot-SITL
 - Python3.10
@@ -78,7 +78,7 @@ echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest:$HOME/.local/bin" >> ~/.b
 - Clone this repo in your system:
 ```
 cd ~
-git clone https://github.com/ab31mohit/VECROS_INTERN_ASSIGNMENT.git
+git clone https://github.com/ab31mohit/VI_ASSIGNMENT.git
 ```
 - Start the SITL (with MAVProxy console & map) in terminal:
 ```
@@ -90,12 +90,12 @@ Btw you can change the default SITL map location to anything you want to (make s
 
 - Now run the script to upload First mission (of 15 waypoints) to drone in another terminal:
 ```
-cd ~/VECROS_INTERN_ASSIGNMENT/drone_missions/
+cd ~/VI_ASSIGNMENT/drone_missions/
 python3 mission.py
 ```
-<!-- Here's an output video for the same 
+Here's an output video for the same 
 
-https://github.com/user-attachments/assets/f49a3bff-82f9-4360-bfd9-46cf4d9b1002 -->
+https://github.com/user-attachments/assets/10e966bc-033d-4b06-ba05-78162f43f041
 
 
 ## Running PS-1 solution
@@ -116,7 +116,7 @@ grid_path_planning/
 
 - Go to the path of `path_planning.cpp` file. Compile & run it
 ```
-cd ~/VECROS_INTERN_ASSIGNMENT/grid_path_planning
+cd ~/VI_ASSIGNMENT/grid_path_planning
 g++ path_planning.cpp -o path_planning && ./path_planning && rm path_planning
 ```
 (Make sure you have already created three texts files named `output.txt`, `paths.txt`, `points.txt`)
